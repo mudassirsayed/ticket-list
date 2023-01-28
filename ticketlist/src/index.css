@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+main {
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+article {
+  font-size: 1.2rem;
+  width: 90%;
+  margin: 1rem;
+}
+
+button {
+  margin: 1rem 1rem 0.5rem;
+  font: inherit;
+  font-size: 2rem;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
