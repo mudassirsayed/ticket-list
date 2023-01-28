@@ -23,26 +23,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function EditTicket() {
+function EditUser() {
   const classes = useStyles();
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const { id } = useParams();
   const { user } = useSelector((state) => state.data);
   const [state, setState] = useState({
-    ticketId: "",
-    type: "",
-    module: "",
-    priority: "",
-    title: "",
-    riseIn: "",
-    deliverIn: "",
-    status: "",
+    name: "",
+    email: "",
+    contact: "",
+    address: "",
   });
   const [error, setError] = useState("");
 
-  const { ticketId, type, module, priority, title, riseIn, deliverIn, status } =
-    state;
+  const { name, email, contact, address } = state;
   useEffect(() => {
     dispatch(getUser(id));
   }, []);
@@ -57,16 +52,7 @@ function EditTicket() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      !ticketId ||
-      !type ||
-      !module ||
-      !priority ||
-      !title ||
-      !riseIn ||
-      !deliverIn ||
-      !status
-    ) {
+    if (!name || !address || !email || !contact) {
       setError("Please fill all the input fields");
     } else {
       dispatch(updateUser(state, id));
@@ -95,72 +81,36 @@ function EditTicket() {
       >
         <TextField
           id="standard-basic"
-          label="ticketId"
-          value={ticketId || ""}
-          name="ticketId"
+          label="Name"
+          value={name || ""}
+          name="name"
           type="text"
           onChange={handleInputChange}
         />
         <br />
         <TextField
           id="standard-basic"
-          label="type"
-          value={type || ""}
-          name="type"
-          type="text"
+          label="Email"
+          value={email || ""}
+          name="email"
+          type="email"
           onChange={handleInputChange}
         />
         <br />
         <TextField
           id="standard-basic"
-          label="module"
-          value={module || ""}
-          name="module"
-          type="text"
+          label="Contact"
+          value={contact || ""}
+          name="contact"
+          type="number"
           onChange={handleInputChange}
         />
         <br />
         <TextField
           id="standard-basic"
-          label="priority"
-          value={priority || ""}
-          name="priority"
-          type="text"
-          onChange={handleInputChange}
-        />
-        <br />
-        <TextField
-          id="standard-basic"
-          label="title"
-          value={title || ""}
-          name="title"
-          type="text"
-          onChange={handleInputChange}
-        />
-        <br />
-        <TextField
-          id="standard-basic"
-          label="riseIn"
-          value={riseIn || ""}
-          name="riseIn"
-          type="text"
-          onChange={handleInputChange}
-        />
-        <br />
-        <TextField
-          id="standard-basic"
-          label="deliverIn"
-          value={deliverIn || ""}
-          name="deliverIn"
-          type="text"
-          onChange={handleInputChange}
-        />
-        <br />
-        <TextField
-          id="standard-basic"
-          label="status"
-          value={status || ""}
-          name="status"
+          label="Address"
+          value={address || ""}
+          name="address"
           type="text"
           onChange={handleInputChange}
         />
@@ -178,4 +128,4 @@ function EditTicket() {
   );
 }
 
-export default EditTicket;
+export default EditUser;

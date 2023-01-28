@@ -53,7 +53,6 @@ export default function Home() {
   const dispatch = useDispatch();
   const { users } = useSelector((state) => state.data);
   let navigate = useNavigate();
-  console.log(users);
   useEffect(() => {
     dispatch(loadUsers());
   }, []);
